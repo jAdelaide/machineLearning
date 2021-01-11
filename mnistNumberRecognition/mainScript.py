@@ -23,7 +23,7 @@ def show_image(img):
     plt.show()
 
 show_image(threes[3])
-show_image(sevens[8])
+show_image(sevens[7])
 
         # This should print "torch.Size([6131, 28, 28]) torch.Size([6265, 28, 28])"
         # This means there are 6131 images that are 28*28 for 3s and 6265 for 7s
@@ -82,8 +82,8 @@ for i in range(2000):
         # Then calculate all the gradients and update our w&b values
         # The gradients are multiplies by a learning rate of 0.001
         # Too high and the model will be slow to learn, too high and it will jump about too much and be unstable
-    w.data -= 0.001*w.grad.data
-    b.data -= 0.001*b.grad.data
+    w.data -= 0.0001*w.grad.data
+    b.data -= 0.0001*b.grad.data
 
         # Zero out the gradients at the end of each loop to prevent any unwanted accumulation
     w.grad.zero_()
