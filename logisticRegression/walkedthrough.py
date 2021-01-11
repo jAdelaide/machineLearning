@@ -83,3 +83,5 @@ print('Accuracy from SK-Learn: {0}'.format(clf.score(simulated_separableish_feat
 plt.figure(figsize = (12, 8))
 plt.scatter(simulated_separableish_features[:, 0], simulated_separableish_features[:, 1],
             c = preds == simulated_labels - 1, alpha = .8, s = 50)
+
+plt.show()
