@@ -7,7 +7,7 @@ import matplotlib.pyplot as pyplot
 from matplotlib import style
 import pickle
 
-data = pd.read_csv("student-mat.csv", sep=";")
+data = pd.read_csv("../student-mat.csv", sep=";")
 
 print(data.head())
 print()
@@ -46,14 +46,14 @@ x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(X, y
 #     if acc > best:
 #         best = acc
 #             # Makes a file if it doesn't already exist
-#         with open("studentmodel.pickle", "wb") as f:
+#         with open("../studentmodel.pickle", "wb") as f:
 #                 # Saves the model as a pickle file
 #             pickle.dump(linear, f)
 
             #################################################################################################################
     
     # Opens the file in read mode
-pickle_in = open("studentmodel.pickle", "rb")
+pickle_in = open("../studentmodel.pickle", "rb")
     # Loads the model into a variable called 'linear'
 linear = pickle.load(pickle_in)
 
