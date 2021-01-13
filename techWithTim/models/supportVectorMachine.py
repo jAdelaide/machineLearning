@@ -17,7 +17,7 @@ x_train, x_test, y_train, y_test = sklearn.model_selection.train_test_split(x, y
 
     # Implement the support vector classifier
     ######################### Select parameters here #####################################################
-    # C = margin (how many points between the nearest measured values)
+    # C represents the margin (how many points between the nearest measured values)
 clf = svm.SVC(kernel="linear", C=2)
 clf.fit(x_train, y_train)
 
