@@ -12,7 +12,7 @@ def Key_Stats(gather = "Total Debt/Equity (mrq)"):
     df = pd.DataFrame(columns = ['Date', 'Unix', 'Ticker', 'DE Ratio'])
 
         # Define another data frame for the S&P 500
-    sp500_df = pd.read_csv("YAHOO-INDEX_GSPC.csv")
+    sp500_df = pd.read_csv("documents/YAHOO-INDEX_GSPC.csv")
 
         # [1:] Removes the root directory from the list
     for each_dir in stock_list[1:25]:
