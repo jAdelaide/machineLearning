@@ -28,8 +28,15 @@ for name in os.listdir(KNOWN_FACES_DIR):
 
     # Now we have the known faces, we want to go through all the unknown faces and check to see if we have any matches
 print("processing unknown faces")
+filesWithMatches = []
+loading = "+"
 for filename in os.listdir(UNKNOWN_FACES_DIR):
-    print(filename)
+
+    print(loading)
+    loading += "+"
+    if loading == "+++++++++++++++":
+        loading = "+"
+
     image = face_recognition.load_image_file(f"{UNKNOWN_FACES_DIR}/{filename}")
         # There may be multiple faces in the unknown photos, we need to detect all faces before trying to recognise them
     locations = face_recognition.face_locations(image, model=MODEL)
@@ -43,8 +50,11 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
         results = face_recognition.compare_faces(known_faces, face_encoding, TOLERANCE)
         match = None
         if True in results:
+            filesWithMatches.append(filename)
             match = known_names[results.index(True)]
-            print(f"Match found: {match}")
+            print(f"\tMatch found: {match}")
+            print(f"\tIn: {filename}")
+
 
                 # Show image with a box around the identified face
             top_left = (face_location[3], face_location[0])
@@ -65,11 +75,9 @@ for filename in os.listdir(UNKNOWN_FACES_DIR):
                         0.5, 
                         (200, 200, 200), 
                         FONT_THICKNESS)
-        else:
-            print("No match found")
 
     # cv2.imshow(filename, image)
-    print()
-    print()
     cv2.waitKey(10000)
     # cv2.destroyWindow(filename)   <-- doesn't work on Ubuntu
+
+print(f"Files with matches: {filesWithMatches}")
