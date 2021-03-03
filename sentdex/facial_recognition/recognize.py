@@ -27,6 +27,8 @@ for name in os.listdir(KNOWN_FACES_DIR):
         print(name)
 
     # Now we have the known faces, we want to go through all the unknown faces and check to see if we have any matches
+print()
+print()
 print("processing unknown faces")
 filesWithMatches = []
 loading = "+"
